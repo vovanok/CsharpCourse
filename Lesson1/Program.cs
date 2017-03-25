@@ -1,23 +1,10 @@
-﻿using System;
+﻿using Common;
+using System;
 
 namespace Lesson1
 {
     class Program
     {
-        static bool TryEnterNumberFromConsole(out uint number)
-        {
-            Console.Write("Введите число: ");
-            string numberAsString = Console.ReadLine();
-
-            if (!(uint.TryParse(numberAsString, out number)))
-            {
-                Console.Write("Ввели не число");
-                return false;
-            }
-
-            return true;
-        }
-
         static void PrintFibNumberLessThanNumber(uint number)
         {
             Console.Write("Числа Фибоначчи меньшие числа " + number.ToString() + ": ");
@@ -45,9 +32,9 @@ namespace Lesson1
             uint number2;
             uint number3;
 
-            if (!TryEnterNumberFromConsole(out number1) ||
-                !TryEnterNumberFromConsole(out number2) ||
-                !TryEnterNumberFromConsole(out number3))
+            if (!Utils.TryEnterNumberFromConsole(out number1) ||
+                !Utils.TryEnterNumberFromConsole(out number2) ||
+                !Utils.TryEnterNumberFromConsole(out number3))
             {
                 Console.Read();
                 return;
