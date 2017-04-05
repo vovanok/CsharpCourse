@@ -1,20 +1,11 @@
 ﻿namespace Lesson4
 {
-    public class Shape
+    public abstract class Shape
     {
-        public virtual string GetName()
-        {
-            return "Я какая то неопределенная фигура";
-        }
+        public abstract string Name { get; }
 
-        public virtual float GetArea()
-        {
-            return 0;
-        }
+        public abstract float GetArea();
 
-        public virtual float GetPerimeter()
-        {
-            return 0;
-        }
+        public abstract float GetPerimeter();
     }
 }

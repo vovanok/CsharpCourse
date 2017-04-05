@@ -1,29 +1,20 @@
-﻿using System;
-
-namespace Lesson4
+﻿namespace Lesson4
 {
-    class Circle : Shape
+    class Circle : Sector
     {
-        private float radius;
+        private const float CIRCLE_ANGLE = 360;
+
+        public override string Name
+        {
+            get
+            {
+                return "Круг";
+            }
+        }
 
         public Circle(float radius)
+            : base(radius, CIRCLE_ANGLE)
         {
-            this.radius = radius;
-        }
-
-        public override string GetName()
-        {
-            return "Круг";
-        }
-
-        public override float GetArea()
-        {
-            return (float)(Math.PI * Math.Pow(radius, 2));
-        }
-
-        public override float GetPerimeter()
-        {
-            return (float)(2f * Math.PI * radius);
         }
     }
 }

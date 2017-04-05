@@ -5,15 +5,15 @@
         private float width;
         private float height;
 
+        public override string Name
+        {
+            get { return "Прямоугольник"; }
+        }
+
         public Rectangle(float width, float height)
         {
             this.width = width;
             this.height = height;
-        }
-
-        public override string GetName()
-        {
-            return "Прямоугольник";
         }
 
         public override float GetArea()

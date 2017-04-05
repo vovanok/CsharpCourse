@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lesson4
 {
@@ -11,15 +12,12 @@ namespace Lesson4
             Triangle triangle = new Triangle(10f, 20.5f, 30f);
             Sector sector = new Sector(30f, 50f);
 
-            Shape[] shapes = new Shape[4];
-            shapes[0] = rectangle;
-            shapes[1] = circle;
-            shapes[2] = triangle;
-            shapes[3] = sector;
+            List<Shape> shapes =
+                new List<Shape> { rectangle, circle, triangle, sector };
 
-            foreach(Shape shape in shapes)
+            foreach (Shape shape in shapes)
             {
-                Console.WriteLine(shape.GetName());
+                Console.WriteLine(shape.Name);
                 Console.WriteLine(shape.GetArea());
                 Console.WriteLine(shape.GetPerimeter());
                 Console.WriteLine();

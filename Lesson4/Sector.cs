@@ -2,20 +2,25 @@
 
 namespace Lesson4
 {
-    class Sector : Shape
+    class Sector : Shape, IGivableRadius
     {
         private float radius;
         private float angleGrad;
+
+        public override string Name
+        {
+            get { return "Сектор"; }
+        }
+
+        public float Radius
+        {
+            get { return radius; }
+        }
 
         public Sector(float radius, float angleGrad)
         {
             this.radius = radius;
             this.angleGrad = angleGrad;
-        }
-
-        public override string GetName()
-        {
-            return "Сектор";
         }
 
         public override float GetArea()

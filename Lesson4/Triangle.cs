@@ -8,16 +8,16 @@ namespace Lesson4
         private float sideB;
         private float sideC;
 
+        public override string Name
+        {
+            get { return "Треугольник"; }
+        }
+
         public Triangle(float sideA, float sideB, float sideC)
         {
             this.sideA = sideA;
             this.sideB = sideB;
             this.sideC = sideC;
-        }
-
-        public override string GetName()
-        {
-            return "Треугольник";
         }
 
         public override float GetArea()
