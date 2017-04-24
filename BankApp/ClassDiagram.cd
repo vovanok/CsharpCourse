@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BankApp.BusinessLogic.Account" Collapsed="true">
+    <Position X="16.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAIAAAEEkAQAAAAAAAAAAAABAAAACAAAA=</HashCode>
+      <FileName>BusinessLogic\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.Bank" Collapsed="true">
+    <Position X="18.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAACEAAAAACACAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.Client" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.CloseOperation">
+    <Position X="14" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\CloseOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.Employee" Collapsed="true">
+    <Position X="18.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAQAAAEAAAAEAAAAQAAAAAAAACAAAAAIAAABA=</HashCode>
+      <FileName>BusinessLogic\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.MoneyOperation">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\MoneyOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.OpenOperation">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\OpenOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.Operation">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEA=</HashCode>
+      <FileName>BusinessLogic\Operation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.PullMoneyOperation">
+    <Position X="7.5" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\PullMoneyOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankApp.BusinessLogic.PushMoneyOperation">
+    <Position X="10" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLogic\PushMoneyOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BankApp.BusinessLogic.OperationTypes" Collapsed="true">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAABAAAAAAAAAAAACAAAAAAAAAEQAAA=</HashCode>
+      <FileName>BusinessLogic\OperationTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
