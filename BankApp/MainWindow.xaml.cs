@@ -13,13 +13,23 @@ namespace BankApp
         {
             InitializeComponent();
 
-            bank.CreateEmployee("Вася", "123", OperationTypes.None);
-            bank.CreateEmployee("Тома", "123", OperationTypes.None);
+            bank.CreateEmployee("Вася", "123", OperationTypes.PushMoney | OperationTypes.OpenAccount);
+            bank.CreateEmployee("Тома", "123", OperationTypes.PullMoney | OperationTypes.CloseAccount);
 
-            bank.CreateClient("Дядя Вася");
-            bank.CreateClient("Дядя Петя");
-            bank.CreateClient("Дядя Игнат");
+            Client client1 = bank.CreateClient("Дядя Вася");
+            Client client2 = bank.CreateClient("Дядя Петя");
+            Client client3 = bank.CreateClient("Дядя Игнат");
             bank.CreateClient("Геннадий");
+
+            bank.CreateAccount(client1);
+            bank.CreateAccount(client1);
+            bank.CreateAccount(client1);
+
+            bank.CreateAccount(client2);
+            bank.CreateAccount(client2);
+
+            bank.CreateAccount(client3);
+            bank.CreateAccount(client3);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -69,6 +79,97 @@ namespace BankApp
         private void ShowError(string message)
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void On_lbClients_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            RefreshAccountsList();
+        }
+
+        private void RefreshAccountsList()
+        {
+            Client selectedClient = lbClients.SelectedItem as Client;
+            if (selectedClient == null)
+                return;
+
+            lbAccounts.ItemsSource =
+                bank.Accounts.Where(item => item.OwnerClient == selectedClient);
+        }
+
+        private void On_btnPushMoney_Click(object sender, RoutedEventArgs e)
+        {
+            DoMoneyOperation(bank.PushMoney);
+        }
+
+        private void On_btnPullMoney_Click(object sender, RoutedEventArgs e)
+        {
+            DoMoneyOperation(bank.PullMoney);
+        }
+
+        private void DoMoneyOperation(Action<Account, decimal> operationMethod)
+        {
+            Account selectedAccount = lbAccounts.SelectedItem as Account;
+            if (selectedAccount == null)
+            {
+                MessageBox.Show("Не выбран счет", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            decimal enteredDeltaMoney;
+            if (!decimal.TryParse(tbDeltaMoney.Text, out enteredDeltaMoney))
+            {
+                MessageBox.Show("Введена некорректная сумма", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                operationMethod(selectedAccount, enteredDeltaMoney);
+                RefreshAccountsList();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void On_btnAddAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Client selectedClient = lbClients.SelectedItem as Client;
+            if (selectedClient == null)
+                return;
+
+            try
+            {
+                bank.AddAccount(selectedClient);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            RefreshAccountsList();
+        }
+
+        private void On_btnDeleteAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Account selectedAccount = lbAccounts.SelectedItem as Account;
+            if (selectedAccount == null)
+            {
+                MessageBox.Show("Не выбран счет", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                bank.DeleteAccount(selectedAccount);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            RefreshAccountsList();
         }
     }
 }

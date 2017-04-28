@@ -16,13 +16,41 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
             <TextBox Name="tbFilterClientName" Height="50" VerticalContentAlignment="Center" FontSize="20" TextChanged="On_tbFilterClientName_TextChanged"/>
-            <ListBox Name="lbClients">
+            <ListBox Name="lbClients" SelectionChanged="On_lbClients_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" Height="50" FontSize="20" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Name="btnAddAccount" Content="+" Height="50" FontSize="20" Click="On_btnAddAccount_Click"/>
+                <Button Name="btnDeleteAccount" Content="-" Height="50" FontSize="20" Grid.Column="1" Click="On_btnDeleteAccount_Click"/>
+            </Grid>
+            <ListBox Name="lbAccounts">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Number}" Height="50" FontSize="20" />
+                            <TextBlock Text=": " Height="50" FontSize="20" />
+                            <TextBlock Text="{Binding Balance}" Height="50" FontSize="20" />
+                            <TextBlock Text=" руб." Height="50" FontSize="20" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <TextBox Name="tbDeltaMoney" Height="50" FontSize="20"/>
+            <Button Name="btnPushMoney" Content="Положить" Height="50" FontSize="20" Click="On_btnPushMoney_Click"/>
+            <Button Name="btnPullMoney" Content="Снять" Height="50" FontSize="20" Click="On_btnPullMoney_Click"/>
         </StackPanel>
     </Grid>
 </Window>
